@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تمارين طباعة</title>
+  <style>
+    body { font-family: 'Arial'; direction: rtl; text-align: right; background: #f7f7f7; padding: 20px; }
+    .exercise { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; margin-bottom: 30px; }
+    .timer { font-size: 24px; color: #d9534f; }
+    textarea { width: 100%; height: 150px; margin-top: 10px; font-size: 16px; }
+    button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>💻 تمارين الطباعة (1 دقيقة لكل تمرين)</h1>
+
+  <div class="exercise">
+    <h2>التمرين 1</h2>
+    <p>لطالما كان الاعتقاد السائد في مجتمعاتنا العربية خاصة وربما في العالم أجمع عامة أن الشخص الناجح...</p>
+    <button onclick="startTimer(this)">ابدأ التمرين</button>
+    <p class="timer">60</p>
+    <textarea placeholder="ابدأ بالكتابة هنا..." disabled></textarea>
+  </div>
+
+  <div class="exercise">
+    <h2>التمرين 2</h2>
+    <p>مع التقدم التكنولوجي، والانتشار الكبير لعالم الإنترنت ومواقع التواصل الاجتماعي، أصبح تعلم استعمال الحاسوب ضرورة...</p>
+    <button onclick="startTimer(this)">ابدأ التمرين</button>
+    <p class="timer">60</p>
+    <textarea placeholder="ابدأ بالكتابة هنا..." disabled></textarea>
+  </div>
+
+  <div class="exercise">
+    <h2>التمرين 3</h2>
+    <p>الأب هو أعظم رجل وهو السند والصاحب في الحياة الدنيا، وهو أمان العائلة، وفسحة الأمل فيها...</p>
+    <button onclick="startTimer(this)">ابدأ التمرين</button>
+    <p class="timer">60</p>
+    <textarea placeholder="ابدأ بالكتابة هنا..." disabled></textarea>
+  </div>
+
+  <div class="exercise">
+    <h2>التمرين 4</h2>
+    <p>قراءة الكتب توسّع مدارك العقل، وتمنح الإنسان مفردات جديدة، وتساعده على التفكير النقدي...</p>
+    <button onclick="startTimer(this)">ابدأ التمرين</button>
+    <p class="timer">60</p>
+    <textarea placeholder="ابدأ بالكتابة هنا..." disabled></textarea>
+  </div>
+
+  <div class="exercise">
+    <h2>التمرين 5</h2>
+    <p>تعلُّم البرمجة في وقتنا الحالي أصبح من المهارات الأساسية التي يحتاجها أي شخص يرغب في تطوير نفسه...</p>
+    <button onclick="startTimer(this)">ابدأ التمرين</button>
+    <p class="timer">60</p>
+    <textarea placeholder="ابدأ بالكتابة هنا..." disabled></textarea>
+  </div>
+
+  <script>
+    function startTimer(button) {
+      const container = button.parentElement;
+      const timerDisplay = container.querySelector('.timer');
+      const textarea = container.querySelector('textarea');
+
+      let time = 60;
+      timerDisplay.textContent = time;
+      textarea.disabled = false;
+      textarea.focus();
+      button.disabled = true;
+
+      const interval = setInterval(() => {
+        time--;
+        timerDisplay.textContent = time;
+
+        if (time <= 0) {
+          clearInterval(interval);
+          textarea.disabled = true;
+          button.disabled = false;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
+```
